@@ -1,6 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { createStore} from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import rootReducer from './reducers';
 
+import {moviesActions}  from './app/movies/duck'
+const store=createStore(rootReducer,composeWithDevTools())
+store.dispatch(moviesActions.add('How I met your mather'));
+
+
+window.store=store;
 function App() {
   return (
     <div className="App">
